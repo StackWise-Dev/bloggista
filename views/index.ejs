@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./comps/head.ejs")%>
+<body>
+    
+    <!-- CALLING TO NAV BAR PAGE -->
+    <%- include("./comps/navBar.ejs") %>
+
+    <div class="content-section">
+        <h1>All Blogs</h1>
+        <% if(blogs.length > 0) { %>
+            <% blogs.forEach((blog) => { %>
+                <div class="blog-section">
+                    <a href="/blogs/<%=blog._id%>">
+                        <h2 class="title"><%= blog.title %></h2>
+                        <p class="content"><%= blog.content %></p>
+                    </a>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>Sorry! no blogs to display...</p>
+        <% } %>
+    </div>
+
+    <!-- INCLUDING THE FOOTER PAGE -->
+    <%- include("./comps/footer.ejs") %>
+
+</body>
+</html>

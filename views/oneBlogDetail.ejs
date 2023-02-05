@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./comps/head.ejs")%>
+<body>
+    
+    <!-- CALLING TO NAV BAR PAGE -->
+    <%- include("./comps/navBar.ejs") %>
+
+    <div class="blog-section">
+        <h1 class="title"><%= blogs.title %></h1>
+        <p class="content"><%= blogs.content %></p>
+        <button class="btn-delete" data-id="<%=blogs._id%>">Delete</button>
+    </div>
+
+    <!-- INCLUDING THE FOOTER PAGE -->
+    <%- include("./comps/footer.ejs") %>
+
+    <script>
+        let btnDelete = document.querySelector(".btn-delete");
+
+        btnDelete.addEventListener("click", (e) => {
+            // this path will be sended to the previouse page and then id will extracted from it to delete the data
+            let id = `/blogs/${btnDelete.dataset.id}`;
+
+            // id will only fetch data fron that point
+            // .then will perform action on that data
+            // using id we send the id of the blog 
+            // the server will delete that blog using delete method and the return a json object
+            // on returned data we will perform operations to redirect to the blog page
+            fetch(id, {
+                method: 'DELETE'
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                window.location.href = data.redirect;
+            })
+            .catch((error) => console.log(error))
+        });
+    </script>
+</body>
+</html>

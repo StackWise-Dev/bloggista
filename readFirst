@@ -1,0 +1,53 @@
+1.  create a folder and open it in vs code
+2.  now open cmd in vs code inside that folder
+3.  type "npm init" to initialize for package.json file
+4.  follow the instructions by just clicking enter button
+5.  install all packages given below:
+    "npm install nodemon"       // for live server 
+    "npm install ejs"           // for view engines to load dynamic content
+    "npm install express"       // for navigation like http engines
+
+6.  create a file with name "app.js" which will handle the whole application
+7.  create a folder with the name "views" which will contains all other pages
+    like index, about and other 404 pages
+8.  "views" name should be default. if you name this folder to other than views then you should have to configure the setting manually. so keep the name of the folder as "views" for default setting.
+
+9.  extension of the file should be ".ejs" for view engines like index.ejs, about.ejs etc....
+
+10. if you want to add a publically located folder accessable by all the files of the project, then create a folder with the name "public" and place all other files of external css and images and other files like these. 
+
+11. create a mongoDb database for storing the blogs
+
+12. install mongoose to handle the operations of CRUD on mongodb database
+
+/* IMPORTANT AND MUST READ */
+13. app.js file act as a serve and the other files are from client side
+
+
+=> FOLDER STRUCTURE
+app.js          => act as server
+views folder    => holds the client side pages or other modules
+comp folder     => inside the views folder which handles small modules or
+                   repeating codes
+public folder   => this holds the files like style.css images, voices,
+                   icons etc. which can be accessd by all other files
+Routes folder   => this folder is used to handle the routes for the 
+                   files who shares the same link like:
+                   service/product.ejs
+                   service/item.ejs
+                   service/itemList.ejs
+                   // here the common thing is the service
+                   so, routes folder will keep the record of all the files accessing the same path and return a single line of code to add into the app.js file to make the code clean and effecient
+
+
+
+<<< ----------------- final step to read about---------------------- >>>
+We have complete the model, view and controller (MVC) model in the project.
+check and you will found all the three folder naming "models", "views", "controllers"
+
+models => used to store all the models of the schemas to tells us about how to store data into database
+views => used to handle the visual of the website/project 
+controller => control handles the communication between the models and the views
+
+
+data is written inside the views and then this data is sended to the models and then send it back to the controller to perform certain operations and send it back to the app.js file
