@@ -9,7 +9,7 @@ const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 
 // ACCESS MONGODB KEY
-const URI = "mongodb+srv://blogUser:blog123@blogsdb.dwva5cz.mongodb.net/blogDatabase?retryWrites=true&w=majority";
+const URI = "mongodb atlas uri goes here";
 // CONNECT TO MONGOOSE
 mongoose.connect(URI)
     .then((result) => {
